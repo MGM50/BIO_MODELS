@@ -1,12 +1,12 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Float, PerspectiveCamera, Environment, MeshDistortMaterial, Sparkles, Points, PointMaterial, Float as FloatDrei } from '@react-three/drei';
-import { EffectComposer, Bloom, Noise, Vignette, ChromaticAberration, DepthOfField } from '@react-three/postprocessing';
+import { PerspectiveCamera, Environment, MeshDistortMaterial, Sparkles, Points, PointMaterial } from '@react-three/drei';
+import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing';
 import { useRef, useMemo } from 'react';
 import * as THREE from 'three';
 
 function CytoplasmicStreaming({ isLight }: { isLight: boolean }) {
   const pointsRef = useRef<THREE.Points>(null);
-  const count = 2000;
+  const count = 1000; // Reduced from 2000
   
   const [positions, step] = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -23,24 +23,11 @@ function CytoplasmicStreaming({ isLight }: { isLight: boolean }) {
   useFrame((state) => {
     if (!pointsRef.current) return;
     const time = state.clock.getElapsedTime();
-    const scrollY = window.scrollY;
     
-    const positions = pointsRef.current.geometry.attributes.position.array as Float32Array;
-    for (let i = 0; i < count; i++) {
-      const i3 = i * 3;
-      const s = step[i];
-      // Fluid motion
-      positions[i3] += Math.sin(time * 0.2 + s * 10) * 0.01;
-      positions[i3 + 1] += Math.cos(time * 0.3 + s * 10) * 0.01;
-      
-      // Scroll reaction
-      positions[i3 + 1] -= scrollY * 0.00001;
-      
-      // Reset if out of bounds
-      if (positions[i3 + 1] < -20) positions[i3 + 1] = 20;
-    }
-    pointsRef.current.geometry.attributes.position.needsUpdate = true;
+    // Only rotate for movement, avoid heavy per-point CPU updates
     pointsRef.current.rotation.y = time * 0.05;
+    pointsRef.current.rotation.z = time * 0.02;
+    pointsRef.current.position.y = Math.sin(time * 0.1) * 0.5;
   });
 
   return (
@@ -65,13 +52,14 @@ function Organelles({ isLight }: { isLight: boolean }) {
     const temp = [];
     for (let i = 0; i < 12; i++) {
       temp.push({
-        position: [
+        position: new THREE.Vector3(
           (Math.random() - 0.5) * 25,
           (Math.random() - 0.5) * 35,
           (Math.random() - 0.5) * 10 - 5
-        ],
+        ),
         scale: Math.random() * 1.2 + 0.4,
         speed: Math.random() * 0.15 + 0.05,
+        offset: Math.random() * 100,
         distort: Math.random() * 0.3 + 0.1,
         color: i % 2 === 0 ? (isLight ? "#10b981" : "#00ffcc") : (isLight ? "#6366f1" : "#3b82f6")
       });
@@ -81,29 +69,38 @@ function Organelles({ isLight }: { isLight: boolean }) {
 
   useFrame((state) => {
     if (!groupRef.current) return;
+    const time = state.clock.getElapsedTime();
     const scrollY = window.scrollY;
+    
+    // Smooth scroll position
     groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, -scrollY * 0.001, 0.05);
+    
+    // Manual float animation for children
+    groupRef.current.children.forEach((child, i) => {
+      const item = items[i];
+      if (item) {
+        child.position.y = item.position.y + Math.sin(time * item.speed + item.offset) * 0.5;
+        child.rotation.x = time * item.speed * 0.2;
+        child.rotation.y = time * item.speed * 0.3;
+      }
+    });
   });
 
   return (
     <group ref={groupRef}>
       {items.map((item, i) => (
-        <FloatDrei key={i} speed={item.speed} rotationIntensity={0.2} floatIntensity={0.2}>
-          <mesh position={item.position as any} scale={item.scale}>
-            <sphereGeometry args={[1, 32, 32]} />
-            <MeshDistortMaterial 
-              color={item.color} 
-              distort={item.distort} 
-              speed={1} 
-              roughness={0.2}
-              metalness={0.8}
-              transparent 
-              opacity={isLight ? 0.03 : 0.08}
-              emissive={item.color}
-              emissiveIntensity={isLight ? 0.05 : 0.2}
-            />
-          </mesh>
-        </FloatDrei>
+        <mesh key={i} position={item.position} scale={item.scale}>
+          <sphereGeometry args={[1, 12, 12]} />
+          <MeshDistortMaterial 
+            color={item.color} 
+            distort={item.distort} 
+            speed={1} 
+            roughness={0.4}
+            metalness={0.2}
+            transparent 
+            opacity={isLight ? 0.03 : 0.08}
+          />
+        </mesh>
       ))}
     </group>
   );
@@ -121,9 +118,11 @@ function Rig() {
   return null;
 }
 
-export default function ThreeBackground({ theme }: { theme: 'dark' | 'light' }) {
+export default function ThreeBackground({ theme, paused }: { theme: 'dark' | 'light', paused?: boolean }) {
   const isLight = theme === 'light';
   
+  if (paused) return null;
+
   return (
     <div className="fixed inset-0 -z-10 transition-colors duration-1000 pointer-events-none">
       {/* Enhanced Background Gradient Overlay */}
@@ -134,9 +133,9 @@ export default function ThreeBackground({ theme }: { theme: 'dark' | 'light' }) 
       }`} />
       
       <Canvas 
-        dpr={[1, 1.5]} 
+        dpr={1} 
         gl={{ 
-          antialias: true, 
+          antialias: false, 
           powerPreference: "high-performance",
           alpha: true
         }}
@@ -152,7 +151,7 @@ export default function ThreeBackground({ theme }: { theme: 'dark' | 'light' }) 
         <Organelles isLight={isLight} />
         
         <Sparkles 
-          count={isLight ? 30 : 80} 
+          count={isLight ? 20 : 40} 
           scale={35} 
           size={1.2} 
           speed={0.1} 
@@ -162,20 +161,13 @@ export default function ThreeBackground({ theme }: { theme: 'dark' | 'light' }) 
         
         <Environment preset={isLight ? "warehouse" : "night"} />
 
-        <EffectComposer multisampling={4}>
+        <EffectComposer multisampling={0}>
           <Bloom 
-            luminanceThreshold={isLight ? 0.98 : 0.4} 
+            luminanceThreshold={isLight ? 0.98 : 0.6} 
             mipmapBlur 
-            intensity={isLight ? 0.05 : 0.5} 
+            intensity={isLight ? 0.05 : 0.4} 
             radius={0.4} 
           />
-          <DepthOfField 
-            focusDistance={0} 
-            focalLength={0.02} 
-            bokehScale={isLight ? 1 : 3} 
-            height={480} 
-          />
-          <ChromaticAberration offset={new THREE.Vector2(0.0005, 0.0005)} />
           <Vignette eskil={false} offset={0.2} darkness={isLight ? 0.4 : 0.8} />
           <Noise opacity={isLight ? 0.01 : 0.02} />
         </EffectComposer>

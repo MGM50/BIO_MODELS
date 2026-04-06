@@ -118,7 +118,7 @@ export default function LegalModal({ type, theme, onClose }: LegalModalProps) {
             className="relative min-h-screen w-full flex flex-col"
           >
             {/* Header / Navigation */}
-            <div className={`sticky top-0 z-[210] p-6 md:p-8 border-b backdrop-blur-xl flex items-center justify-between ${isLight ? 'bg-white/80 border-black/5' : 'bg-black/80 border-white/5'}`}>
+            <div className={`sticky top-0 z-210 p-6 md:p-8 border-b backdrop-blur-xl flex items-center justify-between ${isLight ? 'bg-white/80 border-black/5' : 'bg-black/80 border-white/5'}`}>
               <div className="flex items-center gap-4 md:gap-6">
                 <div className={`p-4 rounded-2xl ${isLight ? 'bg-black/5' : 'bg-white/5'}`}>
                   {data.icon}

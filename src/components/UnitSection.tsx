@@ -1,51 +1,56 @@
-import { motion, useScroll, useTransform, useSpring } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import { LucideExternalLink, LucideLayers } from 'lucide-react';
-
-interface Label {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  tags?: string[];
-}
+import { type Label } from '../types';
 
 interface UnitSectionProps {
   grade: string;
   title: string;
   labels: Label[];
   id?: string;
-  onLabelClick?: (label: Label) => void;
+  onLabelClick?: (label: Label, related: Label[]) => void;
+  'data-unit-name'?: string;
+  'data-grade-num'?: string;
 }
 
-function ParallaxImage({ src, alt, scrollYProgress, isLarge }: { src: string, alt: string, scrollYProgress: any, isLarge: boolean }) {
-  const y = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const springY = useSpring(y, { stiffness: 100, damping: 30 });
-
+function GridImage({ src, alt }: { src: string, alt: string }) {
   return (
-    <motion.img
-      style={{ y: springY }}
+    <img
       src={src}
       alt={alt}
-      className={`w-full h-[120%] object-cover transition-transform duration-1000 group-hover:scale-110 parallax-img absolute top-0 left-0`}
+      className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 absolute top-0 left-0`}
       referrerPolicy="no-referrer"
+      loading="lazy"
     />
   );
 }
 
-export default function UnitSection({ grade, title, labels, id, onLabelClick }: UnitSectionProps) {
+export default function UnitSection({ 
+  grade, 
+  title, 
+  labels, 
+  id, 
+  onLabelClick,
+  'data-unit-name': unitName,
+  'data-grade-num': gradeNum
+}: UnitSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2], [0.98, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
 
   return (
-    <section id={id} ref={containerRef} className="unit-section-container min-h-screen py-32 px-6 md:px-12 lg:px-24 relative">
-      <motion.div style={{ opacity, scale }} className="max-w-7xl mx-auto">
+    <section 
+      id={id} 
+      ref={containerRef} 
+      data-unit-name={unitName}
+      data-grade-num={gradeNum}
+      className="unit-section-container min-h-screen py-32 px-6 md:px-12 lg:px-24 relative"
+    >
+      <motion.div style={{ opacity }} className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 border-b border-accent/10 pb-10">
           <div>
@@ -75,15 +80,13 @@ export default function UnitSection({ grade, title, labels, id, onLabelClick }: 
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: (index % 10) * 0.05, ease: [0.21, 0.47, 0.32, 0.98] }}
                 viewport={{ once: true, margin: "-50px" }}
-                onClick={() => onLabelClick?.(label)}
+                onClick={() => onLabelClick?.(label, labels)}
                 className="glass-card group rounded-xl overflow-hidden flex flex-col cursor-pointer hover:border-accent/30 transition-all duration-500"
               >
                 <div className="relative overflow-hidden aspect-square">
-                  <ParallaxImage 
+                  <GridImage 
                     src={label.imageUrl} 
                     alt={label.title} 
-                    scrollYProgress={scrollYProgress} 
-                    isLarge={false} 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/10 to-transparent opacity-60" />
                   <div className="absolute top-3 right-3 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -112,7 +115,7 @@ export default function UnitSection({ grade, title, labels, id, onLabelClick }: 
                     <button 
                       onClick={(e) => {
                         e.stopPropagation();
-                        onLabelClick?.(label);
+                        onLabelClick?.(label, labels);
                       }}
                       className="text-[8px] font-black text-accent hover:tracking-[0.1em] transition-all duration-300 uppercase tracking-widest flex items-center gap-1"
                     >
