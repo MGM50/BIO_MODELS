@@ -1,0 +1,436 @@
+{
+  "g9": {
+    "u1": [
+      {
+        "file": "mitosis.png",
+        "title": "Mitosis: The Cycle of Life",
+        "description": "A detailed visualization of the four main stages of mitosis: Prophase, Metaphase, Anaphase, and Telophase.",
+        "tags": ["CELLS", "DIVISION", "G9"]
+      },
+      {
+        "file": "nucleus.jpg",
+        "title": "The Control Center",
+        "description": "Exploring the nucleus, nuclear envelope, and chromatin structure within a eukaryotic cell.",
+        "tags": ["ORGANELLES", "GENETICS"]
+      },
+      {
+        "file": "Screenshot 2026-03-31 135506.png",
+        "title": "Cellular Overview",
+        "description": "A broad overview of cellular structures and their functions.",
+        "tags": ["CELLS", "OVERVIEW"]
+      }
+    ],
+    "u2": [
+      {
+        "file": "figure_2_2.jpg",
+        "title": "Figure 2.2 – The lines that make up scale",
+        "description": "The lines that make up scale",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_3.jpg",
+        "title": "Figure 2.3 – A compound microscope with two sets of lenses",
+        "description": "A compound microscope with two sets of lenses",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_7.jpg",
+        "title": "Figure 2.7 – Onion epidermis cells stained with iodine x100",
+        "description": "Onion epidermis cells stained with iodine x100",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_8.jpg",
+        "title": "Figure 2.8 – A diagram of an electron microscope",
+        "description": "A diagram of an electron microscope",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_11.jpg",
+        "title": "Figure 2.11 – A simple animal cell",
+        "description": "A simple animal cell – common features",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_12.jpg",
+        "title": "Figure 2.12 – Micrograph and diagram of animal cell",
+        "description": "Micrograph and diagram of animal cell",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_13.jpg",
+        "title": "Figure 2.13 – A photosynthetic (plant) cell",
+        "description": "A photosynthetic (plant) cell",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_15.jpg",
+        "title": "Figure 2.15 – Within an organism",
+        "description": "Within an organism – tissues",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_16.jpg",
+        "title": "Figure 2.16 – Large living organisms",
+        "description": "Large living organisms – cell differentiation",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_17.jpg",
+        "title": "Figure 2.17 – Epithelial cells",
+        "description": "Epithelial cells – respiratory tract",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_18.jpg",
+        "title": "Figure 2.18 – Egg and sperm cells",
+        "description": "Egg and sperm cells",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_19.jpg",
+        "title": "Figure 2.19 – Nerve cells",
+        "description": "Nerve cells",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_20.jpg",
+        "title": "Figure 2.20 – Striated muscle",
+        "description": "Striated muscle",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_23.jpg",
+        "title": "Figure 2.23 – The random movement (diffusion)",
+        "description": "The random movement (diffusion)",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_24.jpg",
+        "title": "Figure 2.24 – Diffusion diagram",
+        "description": "Diffusion diagram",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_25.jpg",
+        "title": "Figure 2.25 – An increase in concentration gradient",
+        "description": "An increase in concentration gradient",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_26.jpg",
+        "title": "Figure 2.26 – Model of partially permeable membrane",
+        "description": "Model of partially permeable membrane",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_27.jpg",
+        "title": "Figure 2.27 – Bags of partially permeable membrane",
+        "description": "Bags of partially permeable membrane",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_29.jpg",
+        "title": "Figure 2.29 – Keeping body fluids at right concentration",
+        "description": "Keeping body fluids at right concentration",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_30.jpg",
+        "title": "Figure 2.30 – Osmosis in plant cells",
+        "description": "Osmosis in plant cells",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_33.jpg",
+        "title": "Figure 2.33 – Osmosis results",
+        "description": "Osmosis results",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_34.jpg",
+        "title": "Figure 2.34 – The rate of active transport",
+        "description": "The rate of active transport",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_2_35.jpg",
+        "title": "Figure 2.35 – Energy use in active transport",
+        "description": "Energy use in active transport",
+        "tags": [
+          "U2",
+          "G9"
+        ]
+      }
+    ],
+    "u3": [
+      {
+        "file": "figure_3_36.jpg",
+        "title": "Figure 3.36 – During exercise",
+        "description": "During exercise – respiration",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_37.jpg",
+        "title": "Figure 3.37 – Hard exercise",
+        "description": "Hard exercise – anaerobic respiration",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_42.jpg",
+        "title": "Figure 3.42 – Mitochondria",
+        "description": "Mitochondria – powerhouse of the cell",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_43.jpg",
+        "title": "Figure 3.43 – ATP",
+        "description": "ATP – the energy currency of the cell",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_44.jpg",
+        "title": "Figure 3.44 – Warm-blooded animals and respiration",
+        "description": "Warm-blooded animals and respiration",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_45.jpg",
+        "title": "Figure 3.45 – Yeast cells",
+        "description": "Yeast cells – anaerobic respiration",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_46.jpg",
+        "title": "Figure 3.46 – The surface area to volume ratio",
+        "description": "The surface area to volume ratio",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_47.jpg",
+        "title": "Figure 3.47 – The two separate circulation systems",
+        "description": "The two separate circulation systems",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_48.jpg",
+        "title": "Figure 3.48 – Arteries, veins and capillaries",
+        "description": "Arteries, veins and capillaries",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_50.jpg",
+        "title": "Figure 3.50 – Heart diagram",
+        "description": "Heart diagram",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_51.jpg",
+        "title": "Figure 3.51 – The heart structure",
+        "description": "The heart structure",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_52.jpg",
+        "title": "Figure 3.52 – As the heart fills and contracts",
+        "description": "As the heart fills and contracts",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_54.jpg",
+        "title": "Figure 3.54 – A fit heart responds quickly to exercise",
+        "description": "A fit heart responds quickly to exercise",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_55.jpg",
+        "title": "Figure 3.55 – Mixed together",
+        "description": "Mixed together – blood components",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_56.jpg",
+        "title": "Figure 3.56 – Without platelets",
+        "description": "Without platelets – blood clotting",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      },
+      {
+        "file": "figure_3_57.jpg",
+        "title": "Figure 3.57 – Blood type compatibility summary",
+        "description": "Blood type compatibility summary",
+        "tags": [
+          "U3",
+          "G9"
+        ]
+      }
+    ],
+    "u4": [],
+    "u5": [],
+    "u6": []
+  },
+  "g10": {
+    "u1": [
+      {
+        "file": "heart_anatomy.png",
+        "title": "Cardiac Architecture",
+        "description": "A cross-sectional view of the human heart, showing the atria, ventricles, and major valves.",
+        "tags": ["ANATOMY", "CIRCULATION", "G10"]
+      },
+      {
+        "file": "blood_flow.webp",
+        "title": "Systemic Circulation",
+        "description": "Mapping the path of oxygenated and deoxygenated blood through the pulmonary and systemic circuits.",
+        "tags": ["PHYSIOLOGY", "HEALTH"]
+      }
+    ],
+    "u2": [],
+    "u3": []
+  },
+  "g11": {
+    "u1": [
+      {
+        "file": "dna_structure.png",
+        "title": "The Double Helix",
+        "description": "An exploration of the molecular structure of DNA, highlighting the sugar-phosphate backbone and nitrogenous base pairs.",
+        "tags": ["GENETICS", "DNA", "G11"]
+      },
+      {
+        "file": "punnett_square.jpg",
+        "title": "Predicting Traits",
+        "description": "Using Punnett squares to determine the probability of offspring inheriting specific genotypes and phenotypes.",
+        "tags": ["HEREDITY", "BIOLOGY"]
+      }
+    ],
+    "u2": [],
+    "u3": []
+  },
+  "g12": {
+    "u1": [
+      {
+        "file": "dna_structure.png",
+        "title": "The Double Helix",
+        "description": "An exploration of the molecular structure of DNA, highlighting the sugar-phosphate backbone and nitrogenous base pairs.",
+        "tags": ["GENETICS", "DNA", "G11"]
+      },
+      {
+        "file": "punnett_square.jpg",
+        "title": "Predicting Traits",
+        "description": "Using Punnett squares to determine the probability of offspring inheriting specific genotypes and phenotypes.",
+        "tags": ["HEREDITY", "BIOLOGY"]
+      }
+    ],
+    "u2": [],
+    "u3": []
+  }
+}

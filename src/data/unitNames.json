@@ -1,0 +1,22 @@
+{
+  "g9": {
+    "u1": "Cellular Foundations",
+    "u2": "Biological Systems",
+    "u3": "Ecosystem Dynamics"
+  },
+  "g10": {
+    "u1": "The Human Heart",
+    "u2": "Genetics & Inheritance",
+    "u3": "Human Physiology"
+  },
+  "g11": {
+    "u1": "Genetics & Inheritance",
+    "u2": "Molecular Biology",
+    "u3": "Biochemistry"
+  },
+  "g12": {
+    "u1": "Advanced Biotechnology",
+    "u2": "Evolutionary Biology",
+    "u3": "Bioinformatics"
+  }
+}
